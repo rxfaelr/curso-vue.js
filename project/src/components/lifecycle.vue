@@ -15,11 +15,18 @@
             this.nome = "carlao"
         }, 1000);
       this.nome = "rafael"
+      this.lifecycle()
     },
     mounted () {
         setTimeout ( () => {
             this.nome = "jorge"
         },2000);
+        this.lifecycle()
+    },
+    methods: {
+      lifecycle (){
+        console.log("deu certo")
+      }
     }
   }
   </script>

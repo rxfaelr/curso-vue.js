@@ -9,6 +9,9 @@
         <li>Flutter</li>
         <li>C#</li>
     </ul>
+    <div>
+        <button @click="showEmail">{{textobotao}}</button>
+    </div>
     <p v-show="mostrar_email">mande um email para {{ email }}</p>
     <p>Para acessar meu portifolio basta <a v-bind:href="meu_link">basta clicar aqui</a></p>
     <foto/>
@@ -26,9 +29,23 @@ export default {
     data () {
         return {
             esta_trabalhando: false,
-            mostrar_email: true,
+            mostrar_email: false,
             email: 'rafael@gmail.com',
-            meu_link: 'https://rxfaelr.github.io/my-portfolio/'
+            meu_link: 'https://rxfaelr.github.io/my-portfolio/',
+            textobotao: 'mostrar contato'
+        }
+    },
+    methods: {
+        showEmail (){
+            this.mostrar_email = !this.mostrar_email
+
+            if (this.mostrar_email == true) {
+                this.textobotao = 'esconder contato'
+            }
+            else {
+                this.textobotao = 'mostrar contato'
+            }
+
         }
     }
 }
