@@ -5,9 +5,13 @@
         <p v-else>NAO TRABALHO</p>
         <p>utilizando as seguintes tecnologias:</p>
     <ul>
-        <li>Vue.js</li>
-        <li>Flutter</li>
-        <li>C#</li>
+       <li v-for="(technology, index) in stack_technologies" v-bind:key="index">{{ technology }}</li>
+    </ul>
+    <p>Utilizo as seguintes ferramentas:</p>
+    <ul>
+        <li v-for="technology in tools_technologies" :key="technology.id">
+        {{ technology.tool }}
+        </li>
     </ul>
     <div>
         <button @click="showEmail">{{textobotao}}</button>
@@ -32,7 +36,13 @@ export default {
             mostrar_email: false,
             email: 'rafael@gmail.com',
             meu_link: 'https://rxfaelr.github.io/my-portfolio/',
-            textobotao: 'mostrar contato'
+            textobotao: 'mostrar contato',
+            stack_technologies: ['Vue.js', 'Flutter', 'C#'],
+            tools_technologies: [
+                 {id: 1, tool: 'Figma'},
+                 {id: 2, tool: 'photoshop'},
+                 {id: 3, tool: 'illustrator'}
+            ]
         }
     },
     methods: {
